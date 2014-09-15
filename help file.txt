@@ -1,0 +1,71 @@
+ALTER USER postgres PASSWORD 'newPassword';
+# by default the postgresql don't have a password, the command help to initial a password for the postgresql users.
+
+Import data to postgresql: it's import to notice the imported data format wrong can caused to bug
+
+
+CREATE TABLE _odds_trend(
+    hname            text,
+	aname            text,
+    hodds            varchar,
+    aodds            varchar,
+	result			 text,
+	mtime			 text,
+	mnumber           text
+);
+
+CREATE TABLE DD_table(
+	matches			text,
+	ddlist			varchar,
+	bifa			varchar
+);
+
+CREATE TABLE bifa(
+	matches			text,
+	bifa			varchar
+);
+
+postgres=# INSERT INTO upas VALUES ('sad','savs',{'bfd',1.50,20140101},{'bfd',1.50,20140101});
+
+migrate 032to 054 (offnet connection) two week   (aus047 to aus055 vms connection) 047 will be colosed
+aus038 vms migrate to aus054..
+
+conn = psycopg2.connect(database='postgres',user='postgres',password='1985712',host= '54.186.47.255',options='-c statement_timeout=100')
+cur = conn.cursor()
+isql = "INSERT INTO sample(hname,aname,hodds,aodds) VALUES(%s,%s,%s,%s);"
+
+
+import cgi
+import urllib2
+
+r = urllib2.urlopen(url)
+_, params = cgi.parse_header(r.headers.get('Content-Type', ''))
+encoding = params.get('charset', 'utf-8')
+unicode_text = r.read().decode(encoding)
+
+import urllib2
+url = 'http://211.151.108.43/soccer/match/714926/ah/handicap/27/'
+page1 = urllib2.urlopen(url,timeout = 3)
+pages = page1.read()
+
+ homeName=\'\xb0\xa2\xc4\xb7\xbf\xa8\xb6\xfb\';
+ 
+ 
+ 
+ database cleanup (duplicate entry)
+ 
+delete from _odds_trend a
+where a.hname <>
+(
+select max(b.hname) from _odds_trend b
+where a.aname = b.aname 
+);
+
+select mnumber from _odds_trend a
+where a.mnumber <>
+(
+select b.mnumber from _odds_trend b
+where a.mnumber = b.mnumber 
+);
+
+14104-14116
